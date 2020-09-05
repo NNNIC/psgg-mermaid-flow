@@ -5,22 +5,22 @@ Convert StateGo Data File (*.psgg) to Mermaid-js Flow Markdown text.
 This tool will convert [Code Mix Visual Programming StateGo](https://statego.programanic.com) data file to [Mermaid](https://mermaid-js.github.io/mermaid/#/) flow chart markdown text.
 
 - StateGo State Chart
-![]()
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/statego.png)
 
-- Mrtmaid Flow Chart
-![]()
+- Mermaid Flow Chart
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/mermeid.png)
 
 # How to use
 
 ## Environment
 
-Windows 10
-Visual Studio 2019
-StateGo (If you want to view StateGo File)
+Windows 10  
+Visual Studio 2019  
+StateGo (If you want to view StateGo Data File)  
 
 ## Build 
-Open psgg2mermaid\psgg2mermaid.sln using Visual Studio 2019
-Build it.
+Open psgg2mermaid\psgg2mermaid.sln using Visual Studio 2019  
+Build it.  
 
 ## Usage
 
@@ -51,16 +51,26 @@ You will see a flow.
 
 ### FizzBuzzControl.psgg (php)
 - StateGo 
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/fizzbuzz.png)
 
 - Mermaid output
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/fizzbuzz-m.png)
+
+- Mermaid output with code option
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/fizzbuzz-mc.png)
 
 ### MazeControl.psgg (unity c#) 
 - StateGo 
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/maze.png)
 
 - Mermaid output
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/maze-m.png)
 
 ## TestControl.psgg (TyranoScript)
 - StateGo 
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/test.png)
 
 - Mermaid output
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/test-m1.png)
+![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/test-m2.png)
 
