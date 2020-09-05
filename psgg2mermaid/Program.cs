@@ -14,6 +14,8 @@ namespace psgg2mermaid
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Start converting.");
+ 
             var bDidpContents = Array.Find(args, i=>i=="-c")!=null ;
 
             Func<string, bool> valid = v => { return !string.IsNullOrEmpty(v); };
@@ -270,7 +272,7 @@ namespace psgg2mermaid
             s = modEnd(s);
 
             File.WriteAllText(args[1], s, Encoding.UTF8);
-            Console.WriteLine("END");
+            Console.WriteLine("..done!");
         }
     }
 }
