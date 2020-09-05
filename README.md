@@ -49,7 +49,7 @@ You will see a flow.
 
 ## Result 
 
-### FizzBuzzControl.psgg (php)
+### FizzBuzzControl.psgg (php) from https://github.com/NNNIC/psgg-php-sample 
 - StateGo 
 ![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/fizzbuzz.png)
 
@@ -59,14 +59,14 @@ You will see a flow.
 - Mermaid output with code option
 ![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/fizzbuzz-mc.png)
 
-### MazeControl.psgg (unity c#) 
+### MazeControl.psgg (unity c#) from https://github.com/NNNIC/unity-maze-digging
 - StateGo 
 ![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/maze.png)
 
 - Mermaid output
 ![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/maze-m.png)
 
-## TestControl.psgg (TyranoScript)
+## TestControl.psgg (TyranoScript) from https://github.com/NNNIC/psgg-tyranoscript-sample
 - StateGo 
 ![](https://raw.githubusercontent.com/NNNIC/psgg-mermaid-flow/master/wiki/test.png)
 
