@@ -19,8 +19,8 @@ Visual Studio 2019
 StateGo (If you want to view StateGo Data File)  
 
 ## Build 
-Open psgg2mermaid\psgg2mermaid.sln using Visual Studio 2019  
-Build it.  
+Open "psgg2mermaid\psgg2mermaid.sln" using Visual Studio 2019.  
+Then, build it.  
 
 ## Usage
 
