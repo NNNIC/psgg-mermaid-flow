@@ -24,13 +24,13 @@ Build it.
 
 ## Usage
 
-<pre>
-fmt : psgg2mermaid PSGG_FILE OUTPUT [-c]
-</pre>
+```format
+psgg2mermaid PSGG_FILE OUTPUT [-c]
+```
 
-PSGG_FILE : StateGo Data File (*.psgg)
-OUTPUT : This tool output text file. 
--c : (Option) Each node contains source code.
+PSGG_FILE : StateGo Data File (*.psgg)  
+OUTPUT : This tool output text file.   
+-c : (Option) Each node contains source code.  
 
 # Test
 
