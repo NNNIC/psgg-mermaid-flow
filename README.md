@@ -79,10 +79,11 @@ You will see a flow.
 PHP version has been converted from C# project using Haxe.  
 
 Open the below url with file url.
-'''
-https://statego.programanic.com/mermaid/disp.php?file=FILE URL
-'''
-Thie server can accesss GitHub raw file.
+<pre>
+https://statego.programanic.com/mermaid/disp.php?file=FILE_URL  
+</pre>
+
+This server can accesss GitHub raw file.
 
 Click the following links to see StateGo Flow with marmaid.
 
