@@ -114,4 +114,6 @@ https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubus
 
 - [StateGo View Control](https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubusercontent.com%2FNNNIC%2Fpsgg-mermaid-flow%2Fmaster%2Fwiki%2FViewFormStateControl.psgg)
 
+- [StateGo Idle Control](https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubusercontent.com%2FNNNIC%2Fpsgg-mermaid-flow%2Fmaster%2Fwiki%2Fidle.psgg)
+
 
