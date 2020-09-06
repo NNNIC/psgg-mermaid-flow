@@ -80,3 +80,9 @@ PHP version has been converted from C# project using Haxe.
 Click the following links to see StateGo Flow wiht marmaid.
 
 - [psgg-bash-sample/sample/TestControl.psgg](https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubusercontent.com%2FNNNIC%2Fpsgg-bash-sample%2Fmaster%2Fsample%2FTestControl.psgg)
+
+-[psgg-angular8-sample/master/sample/my-app/src/app/state/src/MainControl.psgg](https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubusercontent.com%2FNNNIC%2Fpsgg-angular8-sample%2Fmaster%2Fsample%2Fmy-app%2Fsrc%2Fapp%2Fstate%2Fsrc%2FMainControl.psgg)
+
+-[psgg-javascript-15puzzle/m1/js/doc/MainControl.psgg
+](https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubusercontent.com%2FNNNIC%2Fpsgg-javascript-15puzzle%2Fmaster%2Fm1%2Fjs%2Fdoc%2FMainControl.psgg)
+
