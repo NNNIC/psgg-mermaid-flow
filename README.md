@@ -16,7 +16,7 @@ This tool will convert [Code Mix Visual Programming StateGo](https://statego.pro
 
 Windows 10  
 Visual Studio 2019  
-StateGo (If you want to view StateGo Data File)  
+[StateGo](https://statego.programanic.com/) (If you want to view StateGo Data File)  
 
 ## Build 
 Open "psgg2mermaid\psgg2mermaid.sln" using Visual Studio 2019.  
