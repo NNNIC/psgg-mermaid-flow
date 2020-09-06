@@ -110,3 +110,8 @@ https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubus
 https://statego.programanic.com/mermaid/disp.php?file=https%3A%2F%2Fraw.githubusercontent.com%2FNNNIC%2Fpsgg-javascript-15puzzle%2Fmaster%2Fm1%2Fjs%2Fdoc%2FCreatePanelsControl.psgg
 </pre>
 
+## Special TEST for complicated samples.
+
+- [StateGo View Control](https://statego.programanic.com/mermaid/disp.php?file=)
+
+
