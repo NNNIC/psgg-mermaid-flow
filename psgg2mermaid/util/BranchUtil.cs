@@ -14,7 +14,7 @@ namespace lib.util
             public List<string> br_cond_list;
             public List<string> br_cmt_list;
 
-            public int count { get { return br_api_list != null ? br_api_list.Count : 0;  } }
+            public int count() { return br_api_list != null ? br_api_list.Count : 0;   }
             public string get_api(int n)
             {
                 var s = ListUtil.Get(br_api_list, n);
@@ -57,9 +57,13 @@ namespace lib.util
             for (var n = 0; n < item.br_raw_list.Count; n++)
             {
                 var s = item.br_raw_list[n];
-                var api = RegexUtil.Get1stMatch(@"^.+\(", s).TrimEnd('(');
+                //var api = RegexUtil.Get1stMatch(@"^.+\(", s).TrimEnd('(');
+                var api = RegexUtil.Get1stMatch(@"^.+\(", s);//.TrimEnd('(');
+                api = StringUtil.TrimEnd(api, '(');
                 item.br_api_list.Add(api);
-                var bst = RegexUtil.Get1stMatch(@"\(.+\)", s).TrimStart('(').TrimEnd(')');
+                //var bst = RegexUtil.Get1stMatch(@"\(.+\)", s).TrimStart('(').TrimEnd(')');
+                var bst = RegexUtil.Get1stMatch(@"\(.+\)", s).TrimStart('(');
+                bst = StringUtil.TrimEnd(bst, ')');
                 item.br_state_list.Add(bst);
             }
             if (!string.IsNullOrEmpty(brcond))

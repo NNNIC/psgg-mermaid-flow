@@ -1,7 +1,7 @@
 @echo off
 cd /d %~dp0
 
-set TL=psgg2mermaid\bin\Debug\netcoreapp3.1\psgg2mermaid.exe
+set TL=psgg2mermaid\bin\Debug\psgg2mermaid.exe
 
 del /q testdata_out\*.* 2>nul
 

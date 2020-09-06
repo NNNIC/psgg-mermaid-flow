@@ -4,7 +4,7 @@
     S_LOP000[["LOP000<br/>LOOP (<br/>$this->m_num = 1;<br/>$this->m_num <= 100<br/>$this->m_num ++;<br/>)<br/>CALL S_SBS000"]] --> S_LOP001
     S_SBS000("SBS000") --> S_CHECK
     S_CHECK["CHECK"] ==> S_CHECK____br
-    S_CHECK____br{"?"} -->|"$this->m_num % 15 == 0"| S_FizzBuzz
+    S_CHECK____br{{"?"}} -->|"$this->m_num % 15 == 0"| S_FizzBuzz
     S_CHECK____br -->|"$this->m_num % 3 == 0"| S_Fizz
     S_CHECK____br -->|"$this->m_num % 5 == 0"| S_Buzz
     S_CHECK____br -->|"else"| S_NUM

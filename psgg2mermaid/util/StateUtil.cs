@@ -44,7 +44,7 @@ namespace lib.util
         public static bool IsValidStateName(string name)
         {
             if (string.IsNullOrEmpty(name)) return false;
-            return RegexUtil.Get1stMatch(@"[_a-zA-Z]+_[_a-zA-Z0-9]*",name)==name;
+            return RegexUtil.Get1stMatch(@"[_a-zA-Z]+_[_a-zA-Z0-9]*", name) == name;
         }
 
         //public static Dictionary< string, Dictionary<string, string> > MakeImportIni(string s)

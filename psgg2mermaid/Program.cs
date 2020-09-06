@@ -12,20 +12,51 @@ namespace psgg2mermaid
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Start converting.");
- 
-            var bDidpContents = Array.Find(args, i=>i=="-c")!=null ;
+            var bDidpContents = false; //  Array.Find(args, i=>i=="-c")!=null ;   Haxe not supported
+            foreach (var a in args)
+            {
+                if (a == "-c")
+                {
+                    bDidpContents = true;
+                    break;
+                }
+            }
+            var psgg_data = File.ReadAllText(args[0], Encoding.UTF8);
+
+            var s = Convert(psgg_data, bDidpContents);
+
+            File.WriteAllText(args[1], s, Encoding.UTF8);
+            Console.WriteLine("..done!");
+        }
+
+
+        public static string Convert(string psggdata, bool bDidpContents)
+        {
+            //Console.WriteLine("Start converting.");
+            //Console.WriteLine("psggdata =" + psggdata.Substring(0,100));
+
+            //var bDidpContents = false; //  Array.Find(args, i=>i=="-c")!=null ;   Haxe not supported
+            //foreach (var a in args)
+            //{
+            //    if (a == "-c")
+            //    {
+            //        bDidpContents = true;
+            //        break;
+            //    }
+            //}
 
             Func<string, bool> valid = v => { return !string.IsNullOrEmpty(v); };
 
             
             //var psggfile = @"G:\statego\psgg-converter-to-haxe\tohaxe\testdata-tmp\php\FizzBuzzControl.psgg";
-            var psggfile = args[0];
-            var psggdir =  Path.GetDirectoryName(psggfile);
-            var item = lib.util.PsggDataFileUtil.ReadPsgg(psggfile);
+            //var psggfile = args[0];
+            //var psggdir =  Path.GetDirectoryName(psggfile);
+            var item = lib.util.PsggDataFileUtil.ReadPsggData(psggdata);
             var states = item.GetAllStates();
+
+            //Console.WriteLine("States0 = " + states[0]);
 
             var NL = Environment.NewLine;
             var DQ = "\"";
@@ -56,6 +87,8 @@ namespace psgg2mermaid
                 }
                 return ss;
             };
+
+            //Console.WriteLine("{5C4CB7A0-2816-4213-883D-77903F79C3A4}");
 
             foreach (var st in states)
             {
@@ -98,6 +131,7 @@ namespace psgg2mermaid
                         }
                     }
                 }
+                //Console.WriteLine("{4E3F57A1-579E-452F-8218-916205141E0C}");
 
                 var branch = item.GetVal(st, "branch");
                 var brcond = item.GetVal(st, "brcond");
@@ -138,7 +172,7 @@ namespace psgg2mermaid
                     {
                         if (valid(nextstate))
                         {
-                            s += tab + string.Format("{0}[[{1}]] --> {2}", st, v, nextstate) + NL;
+                            s += tab + string_Format("{0}[[{1}]] --> {2}", st, v, nextstate) + NL;
                         }
                     }
                     else
@@ -157,20 +191,20 @@ namespace psgg2mermaid
                         }
                         if (valid(nextstate))
                         {
-                            s += tab + string.Format("{0}" +op_br +  "{1}"+ cl_br +" --> {2}", st, v, nextstate) + NL;
+                            s += tab + string_Format("{0}" +op_br +  "{1}"+ cl_br +" --> {2}", st, v, nextstate) + NL;
                         }
                         else
                         {
-                            s += tab + string.Format("{0}" + op_br +"{1}" + cl_br, st, v) + NL;
+                            s += tab + string_Format("{0}" + op_br +"{1}" + cl_br, st, v) + NL;
                         }
                     }
                 }
                 else
                 {
                     var branch_node = st + "____br";
-                    s += tab + string.Format("{0}[{1}] ==> {2}", st, v, branch_node ) + NL;
+                    s += tab + string_Format("{0}[{1}] ==> {2}", st, v, branch_node ) + NL;
 
-                    for (var n = 0; n < britem.count; n++)
+                    for (var n = 0; n < britem.count(); n++)
                     {
                         var api = britem.get_api(n);
                         var cod = britem.get_cond(n);
@@ -178,11 +212,11 @@ namespace psgg2mermaid
                         var c   = britem.get_cmt(n);
 
                         var bcmt = DQ;
-                        Action<string> addif = v => {
-                            if (valid(v))
+                        Action<string> addif = vv => {
+                            if (valid(vv))
                             {
                                 if (bcmt != DQ) bcmt += " ";
-                                bcmt +=  v;
+                                bcmt +=  vv;
                             }
                         };
 
@@ -202,11 +236,11 @@ namespace psgg2mermaid
 
                         if (n == 0)
                         {
-                            s += tab + string.Format("{0}{{{1}}} -->|{2}| {3}", branch_node, DQ + "?" + DQ , bcmt, nst) + NL;
+                            s += tab + string_Format("{0}{{{1}}} -->|{2}| {3}", branch_node, DQ + "?" + DQ , bcmt, nst) + NL;
                         }
                         else
                         {
-                            s += tab + string.Format("{0} -->|{1}| {2}", branch_node, bcmt, nst) + NL;
+                            s += tab + string_Format("{0} -->|{1}| {2}", branch_node, bcmt, nst) + NL;
                         }
                     }
                 }
@@ -216,6 +250,7 @@ namespace psgg2mermaid
                     addstyle("typ_"+typ.ToUpper(), st);
                 }
             }
+            //Console.WriteLine("{1179EE1D-8B42-4FD1-85EC-A4D3BF5A24D1}");
             foreach (var st in states)
             {
                 if (!st.StartsWith("C_")) continue;
@@ -225,7 +260,7 @@ namespace psgg2mermaid
                     cmt = MKBR(cmt);
                 }
                 var v = DQ + st + (valid(cmt) ? BR + cmt : "") + DQ;
-                s += tab + string.Format("{0}[{1}]", st, v) + NL;
+                s += tab + string_Format("{0}[{1}]", st, v) + NL;
 
                 addstyle("comment", st);
             }
@@ -244,7 +279,7 @@ namespace psgg2mermaid
                     cmt += BR + embed;
                 }
                 var v = DQ + st + (valid(cmt) ? BR + cmt : "") + DQ;
-                s += tab + string.Format("{0}[{1}]", st, v) + NL;
+                s += tab + string_Format("{0}[{1}]", st, v) + NL;
 
                 addstyle("embed", st);
             }
@@ -269,10 +304,32 @@ namespace psgg2mermaid
                 s += tab + "class " + idlist + " " + p.Key + NL;  
             }
 
+            //Console.WriteLine("{D8119A68-D9D5-4F03-9AF2-98D683E492CC}");
+            //Console.WriteLine(s);
             s = modEnd(s);
 
-            File.WriteAllText(args[1], s, Encoding.UTF8);
-            Console.WriteLine("..done!");
+            //Console.WriteLine(s);
+            //Console.WriteLine("{04ABD20A-AFC2-424B-AAA8-682B019BBECB}");
+
+            return s;
+        }
+        static string string_Format(string fmt, string p0)
+        {
+            return fmt.Replace("{0}",p0);
+        }
+        static string string_Format(string fmt, string p0, string p1)
+        {
+            return fmt.Replace("{0}",p0).Replace("{1}",p1);
+        }
+
+        static string string_Format(string fmt, string p0, string p1, string p2)
+        {
+            return fmt.Replace("{0}",p0).Replace("{1}",p1).Replace("{2}",p2);
+        }
+
+        static string string_Format(string fmt, string p0, string p1, string p2, string p3)
+        {
+            return fmt.Replace("{0}",p0).Replace("{1}",p1).Replace("{2}",p2).Replace("{3}",p3);
         }
     }
 }

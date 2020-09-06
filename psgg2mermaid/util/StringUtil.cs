@@ -412,7 +412,11 @@ namespace lib.util
             if (!string.IsNullOrEmpty(argstr))
             {
                 argstr = argstr.TrimStart('(');
-                if (!string.IsNullOrEmpty(argstr)) argstr = TrimEnd(argstr, ')');
+                if (!string.IsNullOrEmpty(argstr))
+                {
+                    //argstr = TrimEnd(argstr, ')');
+                    argstr = StringUtil.TrimEnd(argstr, ')');
+                }
                 if (!string.IsNullOrEmpty(argstr)) argstr = argstr.Trim();
             }
             if (string.IsNullOrEmpty(argstr))

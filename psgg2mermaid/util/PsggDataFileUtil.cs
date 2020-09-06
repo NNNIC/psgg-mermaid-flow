@@ -314,9 +314,14 @@ namespace lib.util
 
         public static Item ReadPsgg(string path)
         {
-            var item = new Item();
-
             var buf = File.ReadAllText(path, Encoding.UTF8);
+            return ReadPsggData(buf);
+        }
+
+        public static Item ReadPsggData(string data)
+        {
+            var item = new Item();
+            var buf = data; //File.ReadAllText(path, Encoding.UTF8);
             var list = new List<string>();
             while (buf != null && buf.Length > 1)
             {

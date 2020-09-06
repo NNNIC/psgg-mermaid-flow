@@ -3,7 +3,7 @@
     S_END(("END"))
     S_FIRSTSTEP["FIRSTSTEP"] --> S_TITLE
     S_TITLE["TITLE<br/>タイトル表示"] ==> S_TITLE____br
-    S_TITLE____br{"?"} -->|"f.butval == 'START'"| S_SCENE_1
+    S_TITLE____br{{"?"}} -->|"f.butval == 'START'"| S_SCENE_1
     S_SCENE_1["SCENE_1"] --> S_DISP_MENU
     S_SHOW_MSGWINDOW["SHOW_MSGWINDOW<br/>メッセージウィンドウの表示"] --> S_SET_CHARNAMEAREA
     S_SETUP_YAMATO["SETUP_YAMATO"] --> S_SERIF01
@@ -31,7 +31,7 @@
     S_GOSUB1[["GOSUB1<br/>New Go Souroutine<br/>CALL SUBSTART1"]] --> S_OK_GOSUB
     S_SHOW_AKANE5["SHOW_AKANE5"] --> S_SHOW_AKANE3
     S_CHECK_COUNT["CHECK_COUNT"] ==> S_CHECK_COUNT____br
-    S_CHECK_COUNT____br{"?"} -->|"f.count < 2"| S_SHOW_AKANE4
+    S_CHECK_COUNT____br{{"?"}} -->|"f.count < 2"| S_SHOW_AKANE4
     S_CHECK_COUNT____br -->|"f.count < 4"| S_SHOW_AKANE5
     S_CHECK_COUNT____br -->|"f.count < 8"| S_SHOW_AKANE6
     S_CHECK_COUNT____br -->|"f.count < 9"| S_SHOW_AKANE8
