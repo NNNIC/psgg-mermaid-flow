@@ -14,45 +14,69 @@ namespace psgg2mermaid
     {
         public static void Main(string[] args)
         {
+            //System.Diagnostics.Debugger.Launch();
+
             var bDidpContents = false; //  Array.Find(args, i=>i=="-c")!=null ;   Haxe not supported
+            var bHtmlOutput = false;
             foreach (var a in args)
             {
                 if (a == "-c")
                 {
                     bDidpContents = true;
-                    break;
+                }
+                if (a == "-html")
+                {
+                    bHtmlOutput = true;
                 }
             }
             var psgg_data = File.ReadAllText(args[0], Encoding.UTF8);
 
             var s = Convert(psgg_data, bDidpContents);
 
-            File.WriteAllText(args[1], s, Encoding.UTF8);
+            if (bHtmlOutput)
+            {
+                File_WriteHtml(args[0], args[1], s);
+            }
+            else
+            {
+                File.WriteAllText(args[1], s, Encoding.UTF8);
+            }
             Console.WriteLine("..done!");
         }
 
+        private static void File_WriteHtml(string psgg, string file, string s)
+        {
+            var srcname = Path.GetFileNameWithoutExtension(psgg);
+            var NL = Environment.NewLine;
+            var txt =
+                "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\">" + NL +
+                "<html lang=\"en\">" + NL +
+                "<head>" + NL +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">" + NL +
+                "<title>" + srcname + " FLOW CHART" + "</title>" + NL +
+                "</head>" + NL +
+                "<body>" + NL +
+                "<h1>" + srcname + "</h1>" + NL +
+                "<p> source:" + psgg + "</p>" + NL + 
+                "<p>﻿<div class=\"mermaid\">" + NL +
+                s + NL +
+                "</div><br> </p>" + NL +
+                "<script>" + NL +
+                "mermaid.initialize({startOnLoad: true, theme: 'neutral'});" + NL +
+                "</script>" + NL +
+                "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.8.0/mermaid.min.js\" integrity=\"sha512-ja+hSBi4JDtjSqc4LTBsSwuBT3tdZ3oKYKd07lTVYmCnTCor56AnRql00ssqnTOR9Ss4gOP/ROGB3SfcJnZkeg==\" crossorigin=\"anonymous\"></script>" + NL +
+                "</body>" + NL +
+                "</html>" + NL
+                ;
+            File.WriteAllText(file, txt, Encoding.UTF8);
+        }
 
         public static string Convert(string psggdata, bool bDidpContents)
         {
-            //Console.WriteLine("Start converting.");
-            //Console.WriteLine("psggdata =" + psggdata.Substring(0,100));
-
-            //var bDidpContents = false; //  Array.Find(args, i=>i=="-c")!=null ;   Haxe not supported
-            //foreach (var a in args)
-            //{
-            //    if (a == "-c")
-            //    {
-            //        bDidpContents = true;
-            //        break;
-            //    }
-            //}
 
             Func<string, bool> valid = v => { return !string.IsNullOrEmpty(v); };
 
             
-            //var psggfile = @"G:\statego\psgg-converter-to-haxe\tohaxe\testdata-tmp\php\FizzBuzzControl.psgg";
-            //var psggfile = args[0];
-            //var psggdir =  Path.GetDirectoryName(psggfile);
             var item = lib.util.PsggDataFileUtil.ReadPsggData(psggdata);
             var states = item.GetAllStates();
 
